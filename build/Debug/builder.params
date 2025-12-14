@@ -7,7 +7,7 @@
     "buildMode": "fast|multhread",
     "showRepathOnLog": true,
     "threadNum": 16,
-    "rootDir": "d:\\work_place\\stm32\\keysking\\Polling",
+    "rootDir": "d:\\workplace\\test",
     "dumpPath": "build\\Debug",
     "outDir": "build\\Debug",
     "incDirs": [
@@ -102,20 +102,20 @@
             "remove-unused-input-sections": true,
             "$toolName": "gcc",
             "link-scatter": [
-                "d:/work_place/stm32/keysking/Polling/STM32F103C8TX_FLASH.ld"
+                "d:/workplace/test/STM32F103C8TX_FLASH.ld"
             ]
         }
     },
     "env": {
-        "workspaceFolder": "d:\\work_place\\stm32\\keysking\\Polling",
-        "workspaceFolderBasename": "Polling",
-        "OutDir": "d:\\work_place\\stm32\\keysking\\Polling\\build\\Debug",
+        "workspaceFolder": "d:\\workplace\\test",
+        "workspaceFolderBasename": "test",
+        "OutDir": "d:\\workplace\\test\\build\\Debug",
         "OutDirRoot": "build",
         "OutDirBase": "build\\Debug",
         "ProjectName": "Interrupt",
         "ConfigName": "Debug",
-        "ProjectRoot": "d:\\work_place\\stm32\\keysking\\Polling",
-        "ExecutableName": "d:\\work_place\\stm32\\keysking\\Polling\\build\\Debug\\Interrupt",
+        "ProjectRoot": "d:\\workplace\\test",
+        "ExecutableName": "d:\\workplace\\test\\build\\Debug\\Interrupt",
         "ChipPackDir": "",
         "ChipName": "",
         "SYS_Platform": "win32",
