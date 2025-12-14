@@ -2,9 +2,8 @@
 
 
 
-
 >>> ld
 
 Memory region         Used Size  Region Size  %age Used
-             RAM:        8072 B        20 KB     39.41%
-           FLASH:       11000 B        64 KB     16.78%
+             RAM:        8296 B        20 KB     40.51%
+           FLASH:       14556 B        64 KB     22.21%

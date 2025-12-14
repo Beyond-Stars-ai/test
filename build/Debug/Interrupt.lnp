@@ -1,7 +1,6 @@
--mcpu=cortex-m3 -mthumb -T d:/work_place/stm32/keysking/Polling/STM32F103C8TX_FLASH.ld -Wl,--gc-sections -Wl,--print-memory-usage --specs=nano.specs --specs=nosys.specs
+-mcpu=cortex-m3 -mthumb -T d:/workplace/test/STM32F103C8TX_FLASH.ld -Wl,--gc-sections -Wl,--print-memory-usage --specs=nano.specs --specs=nosys.specs
 -Wl,-Map=./build/Debug/Interrupt.map
 -o ./build/Debug/Interrupt.elf ./build/Debug/.obj/Core/Src/freertos.o
-./build/Debug/.obj/Core/Src/gpio.o
 ./build/Debug/.obj/Core/Src/main.o
 ./build/Debug/.obj/Core/Src/stm32f1xx_hal_msp.o
 ./build/Debug/.obj/Core/Src/stm32f1xx_it.o
@@ -20,6 +19,7 @@
 ./build/Debug/.obj/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o
 ./build/Debug/.obj/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o
 ./build/Debug/.obj/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o
+./build/Debug/.obj/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o
 ./build/Debug/.obj/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.o
 ./build/Debug/.obj/Middlewares/Third_Party/FreeRTOS/Source/croutine.o
 ./build/Debug/.obj/Middlewares/Third_Party/FreeRTOS/Source/event_groups.o

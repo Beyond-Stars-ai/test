@@ -28,7 +28,6 @@
     ],
     "sourceList": [
         "Core/Src/freertos.c",
-        "Core/Src/gpio.c",
         "Core/Src/main.c",
         "Core/Src/stm32f1xx_hal_msp.c",
         "Core/Src/stm32f1xx_it.c",
@@ -47,6 +46,7 @@
         "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c",
         "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c",
         "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c",
         "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c",
         "Middlewares/Third_Party/FreeRTOS/Source/croutine.c",
         "Middlewares/Third_Party/FreeRTOS/Source/event_groups.c",

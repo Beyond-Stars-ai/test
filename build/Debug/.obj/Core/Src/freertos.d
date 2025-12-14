@@ -28,5 +28,4 @@ build/Debug/.obj/Core/Src/freertos.o: Core/Src/freertos.c \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
- Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
- Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
+ Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
