@@ -1,0 +1,55 @@
+[2025-12-13 21:27:33]	[info] incremental build: 29 source files changed
+These source files will be recompiled
+---
+'d:\work_place\stm32\keysking\Polling\Core\Src\freertos.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Core\Src\main.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Core\Src\stm32f1xx_hal_msp.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Core\Src\stm32f1xx_it.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Core\Src\syscalls.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Core\Src\sysmem.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Core\Src\system_stm32f1xx.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Core\Startup\startup_stm32f103c8tx.s': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_cortex.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_dma.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_exti.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_flash.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_flash_ex.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_gpio.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_gpio_ex.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_pwr.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rcc.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rcc_ex.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Middlewares\Third_Party\FreeRTOS\Source\croutine.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Middlewares\Third_Party\FreeRTOS\Source\event_groups.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Middlewares\Third_Party\FreeRTOS\Source\list.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM3\port.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Middlewares\Third_Party\FreeRTOS\Source\portable\MemMang\heap_4.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Middlewares\Third_Party\FreeRTOS\Source\queue.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Middlewares\Third_Party\FreeRTOS\Source\stream_buffer.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Middlewares\Third_Party\FreeRTOS\Source\tasks.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Middlewares\Third_Party\FreeRTOS\Source\timers.c': object (.o) file not exist
+
+[2025-12-13 21:27:34]	[done]
+	build successfully !
+
+[2025-12-13 21:30:04]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'d:\work_place\stm32\keysking\Polling\Core\Src\freertos.c': source file has been changed.
+'d:\work_place\stm32\keysking\Polling\Core\Src\gpio.c': object (.o) file not exist
+'d:\work_place\stm32\keysking\Polling\Core\Src\main.c': source file has been changed.
+
+[2025-12-13 21:30:04]	[done]
+	build successfully !
+
+[2025-12-13 21:30:34]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\work_place\stm32\keysking\Polling\Core\Src\freertos.c': source file has been changed.
+'d:\work_place\stm32\keysking\Polling\Core\Src\main.c': source file has been changed.
+
+[2025-12-13 21:30:35]	[done]
+	build successfully !
+
