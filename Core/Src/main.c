@@ -37,9 +37,6 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 uint8_t receiveData[18];
-// uint8_t Message_Remote[18];
-
-int receiveFlag = 0;
 
 /* USER CODE END PD */
 
@@ -367,12 +364,11 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
     {
         // 复制接收到的数据
         memcpy(Message_Remote, receiveData, Size);
-        //printf("第一次处理 %c\n", Message_Remote[0]);
+        // printf("第一次处理 %c\n", Message_Remote[0]);
 
         // 将消息放入队列
         osMessageQueuePut(RemoteQueueHandle, &Message_Remote, 0, 0);
         // printf("第二次处理 %c\n", Message_Remote[0]);
-        receiveFlag = 1;
 
         // 清除 IDLE 中断标志
         __HAL_UART_CLEAR_IDLEFLAG(huart);
@@ -453,15 +449,8 @@ void StartRemoteTask(void *argument)
     for (;;)
     {
         uint8_t Message_Remote[18] = {0};
-        if (receiveFlag == 0)
+        if (osMessageQueueGet(RemoteQueueHandle, &Message_Remote, NULL, osWaitForever) == osOK)
         {
-            osDelay(10);
-            continue;
-        }
-        else
-        {
-            osMessageQueueGet(RemoteQueueHandle, &Message_Remote, NULL, 100);
-            // printf("接收到的数据 %s\n", Message_Remote);
             Message_Remote_to_rc(Message_Remote, &rc_control);
             // 打印解码后的数据
             printf("RC Channels: %d,%d,%d,%d,%d\n",
@@ -474,8 +463,6 @@ void StartRemoteTask(void *argument)
                    rc_control.mouse.z, rc_control.mouse.press_l,
                    rc_control.mouse.press_r);
             printf("Keys: 0x%04X\n", rc_control.key.v);
-
-            receiveFlag = 0;
         }
     }
     /* USER CODE END StartRemoteTask */
