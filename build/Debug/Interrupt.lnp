@@ -1,6 +1,7 @@
 -mcpu=cortex-m3 -mthumb -T d:/workplace/test/STM32F103C8TX_FLASH.ld -Wl,--gc-sections -Wl,--print-memory-usage --specs=nano.specs --specs=nosys.specs
 -Wl,-Map=./build/Debug/Interrupt.map
--o ./build/Debug/Interrupt.elf ./build/Debug/.obj/Core/Src/freertos.o
+-o ./build/Debug/Interrupt.elf ./build/Debug/.obj/Core/Bsp/remote_control.o
+./build/Debug/.obj/Core/Src/freertos.o
 ./build/Debug/.obj/Core/Src/main.o
 ./build/Debug/.obj/Core/Src/stm32f1xx_hal_msp.o
 ./build/Debug/.obj/Core/Src/stm32f1xx_it.o

@@ -1,3 +1,4 @@
+./build/Debug/.obj/Core/Bsp/remote_control.o
 ./build/Debug/.obj/Core/Src/freertos.o
 ./build/Debug/.obj/Core/Src/main.o
 ./build/Debug/.obj/Core/Src/stm32f1xx_hal_msp.o

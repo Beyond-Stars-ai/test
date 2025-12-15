@@ -18,7 +18,8 @@
         "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2",
         "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3",
         "Drivers/CMSIS/Device/ST/STM32F1xx/Include",
-        "Drivers/CMSIS/Include"
+        "Drivers/CMSIS/Include",
+        "Core/Bsp"
     ],
     "libDirs": [],
     "defines": [
@@ -27,6 +28,7 @@
         "STM32F103xB"
     ],
     "sourceList": [
+        "Core/Bsp/remote_control.c",
         "Core/Src/freertos.c",
         "Core/Src/main.c",
         "Core/Src/stm32f1xx_hal_msp.c",
