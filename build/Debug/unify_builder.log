@@ -71,3 +71,23 @@ These source files will be recompiled
 [2025-12-17 17:09:01]	[done]
 	build successfully !
 
+[2025-12-17 17:28:17]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'d:\workplace\test\Core\Bsp\remote_control.c': source file has been changed.
+'d:\workplace\test\Core\Src\main.c': source file has been changed.
+
+[2025-12-17 17:28:17]	[done]
+	build successfully !
+
+[2025-12-17 17:28:47]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'d:\workplace\test\Core\Src\main.c': source file has been changed.
+
+[2025-12-17 17:28:47]	[done]
+	build successfully !
+
+[2025-12-17 17:32:19]	[done]
+	build successfully !
+

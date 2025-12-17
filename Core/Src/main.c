@@ -456,13 +456,12 @@ void StartRemoteTask(void *argument)
             printf("RC Channels: %d,%d,%d,%d,%d\n",
                    rc_control.rc.ch[0], rc_control.rc.ch[1],
                    rc_control.rc.ch[2], rc_control.rc.ch[3], rc_control.rc.ch[4]);
-            // printf("Switch: %c,%c\n",
-            //        rc_control.rc.s[0], rc_control.rc.s[1]);
-            const char *switch_states[] = {"DOWN", "UP", "MID"};
-            printf("Switch: %s,%s\n",
-                   switch_states[rc_control.rc.s[0] - 1],
-                   switch_states[rc_control.rc.s[1] - 1]);
-            
+            printf("Switch: %d,%d\n",
+                   rc_control.rc.s[0], rc_control.rc.s[1]);
+            // const char *switch_states[] = {"DOWN", "UP", "MID"};
+            // printf("Switch: %s,%s\n",
+            //        switch_states[rc_control.rc.s[0] - 1],
+            //        switch_states[rc_control.rc.s[1] - 1]);        
             printf("Mouse: x=%d,y=%d,z=%d,left=%d,right=%d\n",
                    rc_control.mouse.x, rc_control.mouse.y,
                    rc_control.mouse.z, rc_control.mouse.press_l,
