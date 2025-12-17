@@ -14,7 +14,7 @@ virtualFolder:
 dependenceList: []
 outDir: build
 miscInfo:
-  uid: 50c800315328c7e322c2e1d51f738472
+  uid: 223798b3949799be8d1842d2702dd26a
 targets:
   Debug:
     cppPreprocessAttrs:
@@ -24,8 +24,8 @@ targets:
         - STM32F103xB
       incList:
         - Core/Inc
-        - Drivers/STM32F1xx_HAL_Driver/Inc/Legacy
         - Drivers/STM32F1xx_HAL_Driver/Inc
+        - Drivers/STM32F1xx_HAL_Driver/Inc/Legacy
         - Middlewares/Third_Party/FreeRTOS/Source/include
         - Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2
         - Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3
@@ -101,8 +101,8 @@ targets:
         - STM32F103xB
       incList:
         - Core/Inc
-        - Drivers/STM32F1xx_HAL_Driver/Inc/Legacy
         - Drivers/STM32F1xx_HAL_Driver/Inc
+        - Drivers/STM32F1xx_HAL_Driver/Inc/Legacy
         - Middlewares/Third_Party/FreeRTOS/Source/include
         - Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2
         - Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3

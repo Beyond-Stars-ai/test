@@ -68,10 +68,7 @@ void Error_Handler(void);
 #define KEY1_EXTI_IRQn EXTI15_10_IRQn
 
 /* USER CODE BEGIN Private defines */
-// typedef struct {
-//     uint8_t data[8];
-//     uint8_t length;
-// } Message_Remote;
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
