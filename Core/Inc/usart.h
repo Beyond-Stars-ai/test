@@ -29,7 +29,7 @@ extern "C" {
 #include "main.h"
 
 /* USER CODE BEGIN Includes */
-
+extern uint8_t receiveData[18];
 /* USER CODE END Includes */
 
 extern UART_HandleTypeDef huart2;
@@ -44,7 +44,7 @@ void MX_USART2_UART_Init(void);
 void MX_USART3_UART_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-
+void StartRemoteUART();
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

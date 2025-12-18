@@ -19,15 +19,17 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "FreeRTOS.h"
-#include "cmsis_os.h"
-#include "main.h"
 #include "task.h"
+#include "main.h"
+#include "cmsis_os.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
+
+#include "usart.h"
 
 #include "remote_control.h"
 /* USER CODE END Includes */
@@ -42,7 +44,7 @@ extern UART_HandleTypeDef huart3;
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-uint8_t receiveData[18];
+// uint8_t receiveData[18];
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -57,21 +59,22 @@ uint8_t receiveData[18];
 /* Definitions for DebugTask */
 osThreadId_t DebugTaskHandle;
 const osThreadAttr_t DebugTask_attributes = {
-    .name = "DebugTask",
-    .stack_size = 128 * 4,
-    .priority = (osPriority_t)osPriorityNormal,
+  .name = "DebugTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for RemoteTask */
 osThreadId_t RemoteTaskHandle;
 const osThreadAttr_t RemoteTask_attributes = {
-    .name = "RemoteTask",
-    .stack_size = 128 * 4,
-    .priority = (osPriority_t)osPriorityLow,
+  .name = "RemoteTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityLow,
 };
 /* Definitions for RemoteQueue */
 osMessageQueueId_t RemoteQueueHandle;
 const osMessageQueueAttr_t RemoteQueue_attributes = {
-    .name = "RemoteQueue"};
+  .name = "RemoteQueue"
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -84,50 +87,50 @@ void StartRemoteTask(void *argument);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
 /**
- * @brief  FreeRTOS initialization
- * @param  None
- * @retval None
- */
-void MX_FREERTOS_Init(void)
-{
-    /* USER CODE BEGIN Init */
+  * @brief  FreeRTOS initialization
+  * @param  None
+  * @retval None
+  */
+void MX_FREERTOS_Init(void) {
+  /* USER CODE BEGIN Init */
 
-    /* USER CODE END Init */
+  /* USER CODE END Init */
 
-    /* USER CODE BEGIN RTOS_MUTEX */
+  /* USER CODE BEGIN RTOS_MUTEX */
     /* add mutexes, ... */
-    /* USER CODE END RTOS_MUTEX */
+  /* USER CODE END RTOS_MUTEX */
 
-    /* USER CODE BEGIN RTOS_SEMAPHORES */
+  /* USER CODE BEGIN RTOS_SEMAPHORES */
     /* add semaphores, ... */
-    /* USER CODE END RTOS_SEMAPHORES */
+  /* USER CODE END RTOS_SEMAPHORES */
 
-    /* USER CODE BEGIN RTOS_TIMERS */
+  /* USER CODE BEGIN RTOS_TIMERS */
     /* start timers, add new ones, ... */
-    /* USER CODE END RTOS_TIMERS */
+  /* USER CODE END RTOS_TIMERS */
 
-    /* Create the queue(s) */
-    /* creation of RemoteQueue */
-    RemoteQueueHandle = osMessageQueueNew(16, sizeof(receiveData), &RemoteQueue_attributes);
+  /* Create the queue(s) */
+  /* creation of RemoteQueue */
+  RemoteQueueHandle = osMessageQueueNew (16, sizeof(uint8_t), &RemoteQueue_attributes);
 
-    /* USER CODE BEGIN RTOS_QUEUES */
+  /* USER CODE BEGIN RTOS_QUEUES */
     /* add queues, ... */
-    /* USER CODE END RTOS_QUEUES */
+  /* USER CODE END RTOS_QUEUES */
 
-    /* Create the thread(s) */
-    /* creation of DebugTask */
-    DebugTaskHandle = osThreadNew(StartDebugTask, NULL, &DebugTask_attributes);
+  /* Create the thread(s) */
+  /* creation of DebugTask */
+  DebugTaskHandle = osThreadNew(StartDebugTask, NULL, &DebugTask_attributes);
 
-    /* creation of RemoteTask */
-    RemoteTaskHandle = osThreadNew(StartRemoteTask, NULL, &RemoteTask_attributes);
+  /* creation of RemoteTask */
+  RemoteTaskHandle = osThreadNew(StartRemoteTask, NULL, &RemoteTask_attributes);
 
-    /* USER CODE BEGIN RTOS_THREADS */
+  /* USER CODE BEGIN RTOS_THREADS */
     /* add threads, ... */
-    /* USER CODE END RTOS_THREADS */
+  /* USER CODE END RTOS_THREADS */
 
-    /* USER CODE BEGIN RTOS_EVENTS */
+  /* USER CODE BEGIN RTOS_EVENTS */
     /* add events, ... */
-    /* USER CODE END RTOS_EVENTS */
+  /* USER CODE END RTOS_EVENTS */
+
 }
 
 /* USER CODE BEGIN Header_StartDebugTask */
@@ -139,7 +142,7 @@ void MX_FREERTOS_Init(void)
 /* USER CODE END Header_StartDebugTask */
 void StartDebugTask(void *argument)
 {
-    /* USER CODE BEGIN StartDebugTask */
+  /* USER CODE BEGIN StartDebugTask */
     /* Infinite loop */
     for (;;)
     {
@@ -147,7 +150,7 @@ void StartDebugTask(void *argument)
         // printf("Debug Task Running\n");
         osDelay(1000);
     }
-    /* USER CODE END StartDebugTask */
+  /* USER CODE END StartDebugTask */
 }
 
 /* USER CODE BEGIN Header_StartRemoteTask */
@@ -159,9 +162,10 @@ void StartDebugTask(void *argument)
 /* USER CODE END Header_StartRemoteTask */
 void StartRemoteTask(void *argument)
 {
-    /* USER CODE BEGIN StartRemoteTask */
+  /* USER CODE BEGIN StartRemoteTask */
     osDelay(5);
     HAL_UARTEx_ReceiveToIdle_DMA(&huart2, receiveData, sizeof(receiveData));
+    //StartRemoteUART();
 
     RC_ctrl_t rc_control = {0}; // 初始化控制结构体
 
@@ -189,7 +193,7 @@ void StartRemoteTask(void *argument)
             printf("Keys: 0x%04X\n", rc_control.key.v);
         }
     }
-    /* USER CODE END StartRemoteTask */
+  /* USER CODE END StartRemoteTask */
 }
 
 /* Private application code --------------------------------------------------*/
@@ -230,26 +234,27 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 //   HAL_UART_Receive_DMA(&huart2, receiveData, sizeof(receiveData));
 // }
 
-void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
-{
-    uint8_t Message_Remote[18] = {0};
-    if (huart->Instance == USART2 && Size > 0 && Size <= sizeof(receiveData))
-    {
-        // 复制接收到的数据
-        memcpy(Message_Remote, receiveData, Size);
-        // printf("第一次处理 %c\n", Message_Remote[0]);
+// void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
+// {
+//     uint8_t Message_Remote[18] = {0};
+//     if (huart->Instance == USART2 && Size > 0 && Size <= sizeof(receiveData))
+//     {
+//         // 复制接收到的数据
+//         memcpy(Message_Remote, receiveData, Size);
+//         // printf("第一次处理 %c\n", Message_Remote[0]);
 
-        // 将消息放入队列
-        osMessageQueuePut(RemoteQueueHandle, &Message_Remote, 0, 0);
-        // printf("第二次处理 %c\n", Message_Remote[0]);
+//         // 将消息放入队列
+//         osMessageQueuePut(RemoteQueueHandle, &Message_Remote, 0, 0);
+//         // printf("第二次处理 %c\n", Message_Remote[0]);
 
-        // 清除 IDLE 中断标志
-        __HAL_UART_CLEAR_IDLEFLAG(huart);
+//         // 清除 IDLE 中断标志
+//         __HAL_UART_CLEAR_IDLEFLAG(huart);
 
-        // 重新启动IT接收
-        // HAL_UART_Transmit_DMA(&huart2, receiveData, sizeof(receiveData));
-        HAL_UARTEx_ReceiveToIdle_DMA(&huart2, receiveData, sizeof(receiveData));
-        __HAL_DMA_DISABLE_IT(&hdma_usart2_rx, DMA_IT_HT); // 禁止半传送中断
-    }
-}
+//         // 重新启动IT接收
+//         // HAL_UART_Transmit_DMA(&huart2, receiveData, sizeof(receiveData));
+//         HAL_UARTEx_ReceiveToIdle_DMA(&huart2, receiveData, sizeof(receiveData));
+//         __HAL_DMA_DISABLE_IT(&hdma_usart2_rx, DMA_IT_HT); // 禁止半传送中断
+//     }
+// }
 /* USER CODE END Application */
+
